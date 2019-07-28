@@ -1,4 +1,5 @@
 ﻿using System;
+using SimUDuck.FlyBehaviours;
 
 namespace SimUDuck
 {
@@ -7,8 +8,13 @@ namespace SimUDuck
         static void Main(string[] args)
         {
             Duck mallard = new MallardDuck();
-            mallard.performQuack();
-            mallard.performFly();
+            mallard.PerformQuack();
+            mallard.PerformFly();
+
+            Duck model = new ModelDuck();
+            model.PerformFly();
+            model.SetFlyBehaviour(new FlyWithRocket());
+            model.PerformFly();
         }
     }
 }
