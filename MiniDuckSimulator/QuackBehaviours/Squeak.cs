@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SimUDuck.QuackBehaviours
+namespace MiniDuckSimulator.QuackBehaviours
 {
     public class Squeak : IQuackBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace SimUDuck.QuackBehaviours
+namespace MiniDuckSimulator.QuackBehaviours
 {
     public interface IQuackBehaviour
     {

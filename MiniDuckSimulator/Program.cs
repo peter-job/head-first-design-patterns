@@ -1,7 +1,7 @@
 ﻿using System;
-using SimUDuck.FlyBehaviours;
+using MiniDuckSimulator.FlyBehaviours;
 
-namespace SimUDuck
+namespace MiniDuckSimulator
 {
     class Program
     {

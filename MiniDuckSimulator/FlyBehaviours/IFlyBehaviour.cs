@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace SimUDuck.FlyBehaviours
+namespace MiniDuckSimulator.FlyBehaviours
 {
     public interface IFlyBehaviour
     {

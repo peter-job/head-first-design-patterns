@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SimUDuck.FlyBehaviours;
-using SimUDuck.QuackBehaviours;
+using MiniDuckSimulator.FlyBehaviours;
+using MiniDuckSimulator.QuackBehaviours;
 
-namespace SimUDuck
+namespace MiniDuckSimulator
 {
     public class MallardDuck : Duck
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SimUDuck.FlyBehaviours
+namespace MiniDuckSimulator.FlyBehaviours
 {
     public class FlyWithRocket : IFlyBehaviour
     {
