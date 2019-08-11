@@ -2,10 +2,43 @@
 
 namespace WeatherStation
 {
-    class HeatIndexDisplay : IObserver, IDisplayElement {
+    class HeatIndexDisplay : IObserver<WeatherData>, IDisplayElement
+    {
+        private IDisposable unsubscriber;
         private float temperature;
         private float humidity;
-        private ISubject weatherData;
+
+        public HeatIndexDisplay(WeatherData weatherData)
+        {
+            this.Subscribe(weatherData);
+        }
+
+        public void Subscribe(WeatherData weatherData)
+        {
+            this.unsubscriber = weatherData.Subscribe(this);
+        }
+
+        public void OnNext(WeatherData weatherData)
+        {
+            this.temperature = weatherData.Temperature;
+            this.humidity = weatherData.Humidity;
+            Display();
+        }
+
+        public void OnCompleted()
+        {
+            this.Unsubscribe();
+        }
+
+        public void Unsubscribe()
+        {
+            this.unsubscriber.Dispose();
+        }
+
+        public void OnError(Exception e)
+        {
+            Console.WriteLine("Error: {0}", e.Message);
+        }
 
         private float computeHeatIndex(float t, float rh)
         {
@@ -18,19 +51,6 @@ namespace WeatherStation
                 0.000000000843296 * (t * t * rh * rh * rh)) -
                 (0.0000000000481975 * (t * t * t * rh * rh * rh)));
             return index;
-        }
-
-        public HeatIndexDisplay(ISubject weatherData)
-        {
-            this.weatherData = weatherData;
-            weatherData.RegisterObserver(this);
-        }
-
-        public void Update(float temperature, float humidity, float pressure)
-        {
-            this.temperature = temperature;
-            this.humidity = humidity;
-            Display();
         }
 
         public void Display()

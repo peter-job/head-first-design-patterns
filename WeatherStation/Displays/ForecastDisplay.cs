@@ -2,22 +2,41 @@
 
 namespace WeatherStation
 {
-    class ForecastDisplay : IObserver, IDisplayElement
+    class ForecastDisplay : IObserver<WeatherData>, IDisplayElement
     {
+        private IDisposable unsubscriber;
         private float currentPressure = 29.92f;
         private float lastPressure;
-        private WeatherData weatherData;
 
         public ForecastDisplay(WeatherData weatherData)
         {
-            this.weatherData = weatherData;
-            weatherData.RegisterObserver(this);
+            this.Subscribe(weatherData);
         }
 
-        public void Update(float temp, float humidity, float pressure)
+        public void Subscribe(WeatherData weatherData)
+        {
+            this.unsubscriber = weatherData.Subscribe(this);
+        }
+
+        public void OnCompleted()
+        {
+            this.Unsubscribe();
+        }
+
+        public void Unsubscribe()
+        {
+            this.unsubscriber.Dispose();
+        }
+
+        public void OnError(Exception e)
+        {
+            Console.WriteLine("Error: {0}", e.Message);
+        }
+
+        public void OnNext(WeatherData weatherData)
         {
             lastPressure = currentPressure;
-            currentPressure = pressure;
+            currentPressure = weatherData.Pressure;
             Display();
         }
 

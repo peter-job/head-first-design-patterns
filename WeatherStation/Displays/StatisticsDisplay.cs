@@ -2,22 +2,32 @@
 
 namespace WeatherStation
 {
-    class StatisticsDisplay : IObserver, IDisplayElement
+    class StatisticsDisplay : IObserver<WeatherData>, IDisplayElement
     {
+        private IDisposable unsubscriber;
         private float maxTemp = 0.0f;
         private float minTemp = 200;
         private float tempSum = 0.0f;
         private int numReadings;
-        private WeatherData weatherData;
 
         public StatisticsDisplay(WeatherData weatherData)
         {
-            this.weatherData = weatherData;
-            weatherData.RegisterObserver(this);
+            this.Subscribe(weatherData);
         }
 
-        public void Update(float temp, float humidity, float pressure)
+        public void Subscribe(WeatherData weatherData)
         {
+            this.unsubscriber = weatherData.Subscribe(this);
+        }
+
+        public void OnNext(WeatherData weatherData)
+        {
+            this.Update(weatherData);
+        }
+
+        public void Update(WeatherData weatherData)
+        {
+            float temp = weatherData.Temperature;
             tempSum += temp;
             numReadings++;
 
@@ -32,6 +42,21 @@ namespace WeatherStation
             }
 
             Display();
+        }
+
+        public void OnCompleted()
+        {
+            this.Unsubscribe();
+        }
+
+        public void Unsubscribe()
+        {
+            this.unsubscriber.Dispose();
+        }
+
+        public void OnError(Exception e)
+        {
+            Console.WriteLine("Error: {0}", e.Message);
         }
 
         public void Display()

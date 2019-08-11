@@ -4,31 +4,51 @@ using System.Text;
 
 namespace WeatherStation
 {
-    class WeatherData : ISubject
+    class WeatherData : IObservable<WeatherData>
     {
-        private List<IObserver> observers;
+        private List<IObserver<WeatherData>> observers;
         private float temperature;
         private float humidity;
         private float pressure;
 
         public WeatherData()
         {
-            observers = new List<IObserver>();
+            observers = new List<IObserver<WeatherData>>();
         }
 
-        public void RegisterObserver(IObserver o)
+        public IDisposable Subscribe(IObserver<WeatherData> observer)
         {
-            observers.Add(o);
+            observers.Add(observer);
+            return new Unsubscriber(observers, observer);
         }
 
-        public void RemoveObserver(IObserver o)
+        private class Unsubscriber : IDisposable
+        {
+            private List<IObserver<WeatherData>> _observers;
+            private IObserver<WeatherData> _observer;
+
+            public Unsubscriber(List<IObserver<WeatherData>> observers, IObserver<WeatherData> observer)
+            {
+                this._observers = observers;
+                this._observer = observer;
+            }
+
+            public void Dispose()
+            {
+                if (_observer != null && _observers.Contains(_observer))
+                    _observers.Remove(_observer);
+            }
+        }
+
+
+        public void RemoveObserver(IObserver<WeatherData> o)
         {
             observers.Remove(o);
         }
 
         public void NotifyObservers()
         {
-            observers.ForEach(o => o.Update(temperature, humidity, pressure));
+            observers.ForEach(o => o.OnNext(this));
         }
 
         public void MeasurementsChanged()
@@ -42,6 +62,21 @@ namespace WeatherStation
             this.humidity = humidity;
             this.pressure = pressure;
             MeasurementsChanged();
+        }
+
+        public float Temperature
+        {
+            get { return temperature; }
+        }
+
+        public float Pressure
+        {
+            get { return pressure; }
+        }
+
+        public float Humidity
+        {
+            get { return humidity; }
         }
     }
 }

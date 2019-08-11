@@ -4,23 +4,42 @@ using System.Text;
 
 namespace WeatherStation
 {
-    class CurrentConditionsDisplay : IObserver, IDisplayElement
+    class CurrentConditionsDisplay : IObserver<WeatherData>, IDisplayElement
     {
+        private IDisposable unsubscriber;
         private float temperature;
         private float humidity;
-        private ISubject weatherData;
 
-        public CurrentConditionsDisplay(ISubject weatherData)
+        public CurrentConditionsDisplay(IObservable<WeatherData> weatherData)
         {
-            this.weatherData = weatherData;
-            weatherData.RegisterObserver(this);
+            weatherData.Subscribe(this);
         }
 
-        public void Update(float temperature, float humidity, float pressure)
+        public void Subscribe(IObservable<WeatherData> provider)
         {
-            this.temperature = temperature;
-            this.humidity = humidity;
+            this.unsubscriber = provider.Subscribe(this);
+        }
+
+        public void OnCompleted()
+        {
+            this.Unsubscribe();
+        }
+
+        public void Unsubscribe()
+        {
+            this.unsubscriber.Dispose();
+        }
+
+        public void OnNext(WeatherData weatherData)
+        {
+            this.temperature = weatherData.Temperature;
+            this.humidity = weatherData.Humidity;
             Display();
+        }
+
+        public void OnError(Exception e)
+        {
+            Console.WriteLine("Error: {0}", e.Message);
         }
 
         public void Display()
