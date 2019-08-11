@@ -1,4 +1,4 @@
-﻿namespace WeatherStation
+﻿namespace WeatherStation.Net
 {
     public interface IDisplayElement
     {

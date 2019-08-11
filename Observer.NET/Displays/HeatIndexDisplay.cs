@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WeatherStation
+namespace WeatherStation.Net
 {
     class HeatIndexDisplay : IObserver<WeatherData>, IDisplayElement
     {

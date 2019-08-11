@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WeatherStation
+namespace WeatherStation.Net
 {
     class CurrentConditionsDisplay : IObserver<WeatherData>, IDisplayElement
     {
