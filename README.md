@@ -3,5 +3,5 @@ Activities from [Head First Design Patterns](https://www.oreilly.com/library/vie
 
 Chapters
 1. Intro to Design Patterns -
-  **SimUDuck** *(Strategy Pattern)*
+  **MiniDuckSimulator** *(Strategy Pattern)*
 2. The Observer Pattern - **WeatherStation**
