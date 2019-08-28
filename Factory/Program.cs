@@ -6,10 +6,14 @@ namespace PizzaFactory
     {
         static void Main(string[] args)
         {
-            SimplePizzaFactory pizzaFactory = new SimplePizzaFactory();
-            PizzaStore pizzaStore = new PizzaStore(pizzaFactory);
+            PizzaStore nyStore = new NYStylePizzaStore();
+            PizzaStore chicagoStore = new ChicagoStylePizzaStore();
 
-            pizzaStore.OrderPizza("cheese");
+            Pizza pizza = nyStore.OrderPizza("cheese");
+            Console.WriteLine("Ethan ordered a {0} pizza.", pizza.GetName());
+
+            pizza = chicagoStore.OrderPizza("cheese");
+            Console.WriteLine("Joel ordered a {0} pizza.", pizza.GetName());
         }
     }
   }

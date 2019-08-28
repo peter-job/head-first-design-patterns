@@ -1,24 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
 
-public abstract class Pizza
+namespace PizzaFactory
+{
+    public abstract class Pizza
     {
-        public virtual void Prepare()
+        protected string name;
+        protected string dough;
+        protected string sauce;
+        protected List<string> toppings = new List<string>();
+
+        public void Prepare()
         {
-            Console.WriteLine("Standard preparation technique.");
+            Console.WriteLine("Preparing {0}", name);
+            Console.WriteLine("Tossing dough...");
+            Console.WriteLine("Adding sauce...");
+            Console.WriteLine("Adding toppings...");
+
+            foreach (var topping in toppings) {
+                Console.WriteLine("\t{0}", topping);
+            }
         }
 
         public virtual void Bake()
         {
-            Console.WriteLine("Standard baking technique.");
+            Console.WriteLine("Bake for 25 mins at 350");
         }
 
         public virtual void Cut()
         {
-            Console.WriteLine("Standard cutting technique.");
+            Console.WriteLine("Cutting the pizza into diagonal slices");
         }
 
         public virtual void Box()
         {
-            Console.WriteLine("Standard boxing technique.");
+            Console.WriteLine("Place pizza in official PizzaStore box");
+        }
+
+        public virtual string GetName()
+        {
+            return name;
         }
     }
+}

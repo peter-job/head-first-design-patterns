@@ -1,17 +1,10 @@
 ﻿namespace PizzaFactory
 {
-    public class PizzaStore
+    public abstract class PizzaStore
     {
-        SimplePizzaFactory pizzaFactory;
-
-        public PizzaStore(SimplePizzaFactory pizzaFactory)
-        {
-            this.pizzaFactory = pizzaFactory;
-        }
-
         public Pizza OrderPizza(string pizzaType)
         {
-            var pizza = pizzaFactory.CreatePizza(pizzaType);
+            var pizza = this.CreatePizza(pizzaType);
 
             pizza.Prepare();
             pizza.Bake();
@@ -20,5 +13,7 @@
 
             return pizza;
         }
+
+        public abstract Pizza CreatePizza(string pizzaType);
     }
 }
