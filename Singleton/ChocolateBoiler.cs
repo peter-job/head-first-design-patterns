@@ -6,15 +6,18 @@
         private bool boiled;
 
         private static ChocolateBoiler uniqueInstance;
+        private static object locker = new object();
 
         private ChocolateBoiler()
         {
         }
-
+        
         public static ChocolateBoiler GetInstance()
         {
             if (uniqueInstance == null)
             {
+                // lock uniqueInstance for multithreading
+                lock (locker)
                 uniqueInstance = new ChocolateBoiler();
             }
             return uniqueInstance;
