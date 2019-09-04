@@ -1,4 +1,4 @@
-﻿namespace Command
+﻿namespace RemoteControl
 {
     public interface ICommand
     {

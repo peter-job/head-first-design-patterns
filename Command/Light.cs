@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Command
+namespace RemoteControl
 {
     public class Light
     {
