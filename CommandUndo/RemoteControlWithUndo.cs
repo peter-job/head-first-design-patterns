@@ -38,7 +38,7 @@
             undoCommand = offCommands[slot];
         }
 
-        public void UndoButtonWasPushed()
+        public void UndoButtonWasPressed()
         {
             undoCommand.Undo();
         }

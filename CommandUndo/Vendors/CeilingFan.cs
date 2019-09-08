@@ -14,26 +14,26 @@ namespace RemoteControlWithUndo
         public void High()
         {
             speed = "High";
-            GetSpeed();
+            Console.WriteLine("{0} ceiling fan is set to {1}", name, speed);
         }
         public void Medium()
         {
             speed = "Medium";
-            GetSpeed();
+            Console.WriteLine("{0} ceiling fan is set to {1}", name, speed);
         }
         public void Low()
         {
             speed = "Low";
-            GetSpeed();
+            Console.WriteLine("{0} ceiling fan is set to {1}", name, speed);
         }
         public void Off()
         {
             speed = "Off";
-            GetSpeed();
-        }
-        public void GetSpeed()
-        {
             Console.WriteLine("{0} ceiling fan is set to {1}", name, speed);
+        }
+        public string GetSpeed()
+        {
+            return speed;
         }
     }
 }
