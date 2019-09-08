@@ -1,10 +1,10 @@
 ﻿namespace RemoteControlWithPartyMode
 {
-    public class StereoOnWithCDCommand : ICommand
+    public class StereoOnWithCdCommand : ICommand
     {
         Stereo stereo;
 
-        public StereoOnWithCDCommand(Stereo stereo)
+        public StereoOnWithCdCommand(Stereo stereo)
         {
             this.stereo = stereo;
         }

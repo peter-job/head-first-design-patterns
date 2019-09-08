@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Command", "Command\Command.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandUndo", "CommandUndo\CommandUndo.csproj", "{13B9B740-40E5-4CBD-8B50-E06C35CBD841}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandMacro", "CommandMacro\CommandMacro.csproj", "{45147473-9D63-4BD1-AF4F-F0D06AB6BC45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{13B9B740-40E5-4CBD-8B50-E06C35CBD841}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13B9B740-40E5-4CBD-8B50-E06C35CBD841}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13B9B740-40E5-4CBD-8B50-E06C35CBD841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45147473-9D63-4BD1-AF4F-F0D06AB6BC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45147473-9D63-4BD1-AF4F-F0D06AB6BC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45147473-9D63-4BD1-AF4F-F0D06AB6BC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45147473-9D63-4BD1-AF4F-F0D06AB6BC45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

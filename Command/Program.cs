@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RemoteControl
+namespace RemoteControlWithPartyMode
 {
     class Program
     {
