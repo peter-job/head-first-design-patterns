@@ -12,7 +12,7 @@ namespace Barista
             Console.WriteLine("Making tea...");
             teaHook.PrepareRecipe();
 
-            Console.WriteLine("Making coffee...");
+            Console.WriteLine("\nMaking coffee...");
             coffeeHook.PrepareRecipe();
         }
     }
