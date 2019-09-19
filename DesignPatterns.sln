@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateMethod", "TemplateM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateMethodSort", "TemplateMethod.Sort\TemplateMethodSort.csproj", "{AADD4F03-3DDB-4FD1-8418-B4096CE9E09B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator", "Iterator\Iterator.csproj", "{7C17CB47-9A9F-413C-800D-D3B3E0AA5E65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iterator", "Iterator\Iterator.csproj", "{7C17CB47-9A9F-413C-800D-D3B3E0AA5E65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enumerator.Net", "Enumerator.NET\Enumerator.Net.csproj", "{1525C997-BE58-47C3-A87B-5B9281CD282F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{7C17CB47-9A9F-413C-800D-D3B3E0AA5E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C17CB47-9A9F-413C-800D-D3B3E0AA5E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C17CB47-9A9F-413C-800D-D3B3E0AA5E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1525C997-BE58-47C3-A87B-5B9281CD282F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1525C997-BE58-47C3-A87B-5B9281CD282F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1525C997-BE58-47C3-A87B-5B9281CD282F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1525C997-BE58-47C3-A87B-5B9281CD282F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
