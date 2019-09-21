@@ -9,7 +9,8 @@ namespace DinerMerger
 
         public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu)
         {
-            this.pancakeHouseMenu = pancakeHouseMenu; this.dinerMenu = dinerMenu;
+            this.pancakeHouseMenu = pancakeHouseMenu;
+            this.dinerMenu = dinerMenu;
         }
 
         public void PrintMenu()

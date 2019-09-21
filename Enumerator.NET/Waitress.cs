@@ -7,20 +7,27 @@ namespace DinerMerger
     {
         PancakeHouseMenu pancakeHouseMenu;
         DinerMenu dinerMenu;
+        CafeMenu cafeMenu;
 
-        public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu)
+        public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu, CafeMenu cafeMenu)
         {
-            this.pancakeHouseMenu = pancakeHouseMenu; this.dinerMenu = dinerMenu;
+            this.pancakeHouseMenu = pancakeHouseMenu;
+            this.dinerMenu = dinerMenu;
+            this.cafeMenu = cafeMenu;
         }
 
         public void PrintMenu()
         {
-            IEnumerator pancakeIterator = pancakeHouseMenu.GetEnumerator();
-            IEnumerator dinerIterator = dinerMenu.GetEnumerator();
+            IEnumerator pancakeEnumerator = pancakeHouseMenu.GetEnumerator();
+            IEnumerator dinerEnumerator = dinerMenu.GetEnumerator();
+            IEnumerator cafeEnumerator = cafeMenu.GetEnumerator();
+
             Console.WriteLine("MENU\n----\nBREAKFAST");
-            PrintMenu(pancakeIterator);
+            PrintMenu(pancakeEnumerator);
             Console.WriteLine("\nLUNCH");
-            PrintMenu(dinerIterator);
+            PrintMenu(dinerEnumerator);
+            Console.WriteLine("\nDINNER");
+            PrintMenu(cafeEnumerator);
         }
 
         private void PrintMenu(IEnumerator enumerator)
