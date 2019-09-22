@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enumerator.Net", "Enumerato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composite", "Composite\Composite.csproj", "{3E5A85A4-C576-4976-9DB7-A0EA19CF49BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State", "State\State.csproj", "{A17229DB-1FEE-4DEF-9BD6-35E7E2B0B5AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{3E5A85A4-C576-4976-9DB7-A0EA19CF49BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E5A85A4-C576-4976-9DB7-A0EA19CF49BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E5A85A4-C576-4976-9DB7-A0EA19CF49BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17229DB-1FEE-4DEF-9BD6-35E7E2B0B5AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17229DB-1FEE-4DEF-9BD6-35E7E2B0B5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17229DB-1FEE-4DEF-9BD6-35E7E2B0B5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17229DB-1FEE-4DEF-9BD6-35E7E2B0B5AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
